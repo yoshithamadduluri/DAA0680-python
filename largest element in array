@@ -1,0 +1,9 @@
+def findMax(arr, n):
+    if n == 1:
+        return arr[0]
+    max_of_rest = findMax(arr, n-1)
+    return max(arr[n-1], max_of_rest)
+arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+n = len(arr)
+max_element = findMax(arr, n)
+print(f"The largest element in the array is {max_element}")
