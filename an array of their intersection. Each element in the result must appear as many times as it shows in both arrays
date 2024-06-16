@@ -1,0 +1,13 @@
+from collections import Counter
+def intersection(nums1, nums2):
+    count1 = Counter(nums1)
+    count2 = Counter(nums2)
+    common_elements = count1.keys() & count2.keys()
+    result = []
+    for num in common_elements:
+        result.extend([num] * min(count1[num], count2[num]))
+    return result
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
+result = intersection(nums1, nums2)
+print(result)
