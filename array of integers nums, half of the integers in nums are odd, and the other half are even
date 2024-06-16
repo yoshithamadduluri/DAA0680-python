@@ -1,0 +1,8 @@
+def create_half_odd_even_array(size):
+    half_size = size // 2
+    odd_numbers = [2 * i + 1 for i in range(half_size)]  
+    even_numbers = [2 * i for i in range(half_size)]     
+    return odd_numbers + even_numbers  
+size = 10  
+result_array = create_half_odd_even_array(size)
+print("Half odd, half even array:", result_array)
