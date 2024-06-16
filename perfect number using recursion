@@ -1,0 +1,11 @@
+def is_perfect_number(num):
+    divisor_sum = 0
+    for i in range(1, num):
+        if num % i == 0:
+            divisor_sum += i
+    return divisor_sum == num
+num = int(input("Enter a number: "))
+if is_perfect_number(num):
+    print(num, "is a perfect number.")
+else:
+    print(num, "is not a perfect number.")
