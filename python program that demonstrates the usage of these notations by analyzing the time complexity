@@ -1,0 +1,42 @@
+import time
+import random
+def constant_algorithm(n):
+    return n * n
+def linear_algorithm(arr):
+    return sum(arr)
+def quadratic_algorithm(arr):
+    total = 0
+    for i in arr:
+        for j in arr:
+            total += i * j
+    return total
+def logarithmic_algorithm(n):
+    while n > 1:
+        n = n // 2
+    return n
+def linearithmic_algorithm(arr):
+    return sorted(arr)
+def measure_time(func, *args):
+    start_time = time.time()
+    func(*args)
+    end_time = time.time()
+    return end_time - start_time
+input_sizes = [10, 100, 1000, 10000]
+print("O(1) Constant Time:")
+for size in input_sizes:
+    print(f"Size {size}: {measure_time(constant_algorithm, size):.6f}s")
+print("\nO(n) Linear Time:")
+for size in input_sizes:
+    arr = list(range(size))
+    print(f"Size {size}: {measure_time(linear_algorithm, arr):.6f}s")
+print("\nO(n^2) Quadratic Time:")
+for size in input_sizes:
+    arr = list(range(size))
+    print(f"Size {size}: {measure_time(quadratic_algorithm, arr):.6f}s")
+print("\nO(log n) Logarithmic Time:")
+for size in input_sizes:
+    print(f"Size {size}: {measure_time(logarithmic_algorithm, size):.6f}s")
+print("\nO(n log n) Linearithmic Time:")
+for size in input_sizes:
+    arr = random.sample(range(size * 10), size)
+    print(f"Size {size}: {measure_time(linearithmic_algorithm, arr):.6f}s")
