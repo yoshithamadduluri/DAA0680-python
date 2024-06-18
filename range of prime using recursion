@@ -1,0 +1,14 @@
+def is_prime(n,i=2):
+    if n <= 2:
+        return n == 2
+    if n % i == 0:
+        return False
+    if i * i > n:
+        return True
+    return is_prime(n, i + 1)
+def generate_primes(start, end):
+    if start <= end:
+        if is_prime(start):
+            print(start,",",end="")
+        generate_primes(start + 1, end)
+generate_primes(1,50)
