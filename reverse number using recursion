@@ -1,0 +1,8 @@
+def reverse_number(num):
+    if num < 10:
+        return num
+    last_digit = num % 10
+    return int(str(last_digit) + str(reverse_number(num // 10)))
+num = int(input("Enter a number: "))
+reversed_num = reverse_number(num)
+print("The reverse of", num, "is:", reversed_num)
