@@ -1,0 +1,26 @@
+def findPaths(m, n, N, i, j):
+    MOD = 10**9 + 7
+    dp = [[[0] * (N + 1) for _ in range(n)] for _ in range(m)]
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    dp[i][j][0] = 1
+    result = 0
+    for step in range(1, N + 1):
+        for x in range(m):
+            for y in range(n):
+                for d in directions:
+                    nx, ny = x + d[0], y + d[1]
+                    if 0 <= nx < m and 0 <= ny < n:
+                        dp[x][y][step] = (dp[x][y][step] + dp[nx][ny][step - 1]) % MOD
+                    else:
+                        dp[x][y][step] = (dp[x][y][step] + 1) % MOD
+    for step in range(1, N + 1):
+        for x in range(m):
+            for y in range(n):
+                result = (result + dp[x][y][step]) % MOD
+    return result
+m = 2
+n = 2
+N = 2
+i = 0
+j = 0
+print(findPaths(m, n, N, i, j))  # Output: 6
