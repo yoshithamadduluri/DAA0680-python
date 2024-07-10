@@ -1,0 +1,7 @@
+def process_list(lst):
+    if not lst:
+        return "List is empty"
+    return sorted(lst)[-1]
+print(process_list([]))               
+print(process_list([5]))              
+print(process_list([3, 3, 3, 3, 3]))  ch-1 (6)
