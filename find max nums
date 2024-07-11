@@ -1,0 +1,10 @@
+def find_max(nums):
+    if not nums:
+        return None 
+    max_value = nums[0]
+    for num in nums:
+        if num > max_value:
+            max_value = num
+    return max_value
+test_case = [7, 7, 7, 7, 7]
+print(find_max(test_case)) 
